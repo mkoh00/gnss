@@ -17,7 +17,7 @@ interface Props {
   itemsPerPage: number;
 }
 
-const SnrDataBoard: React.FC<Props> = ({ data, itemsPerPage }) => {
+const SatobsDataBoard: React.FC<Props> = ({ data, itemsPerPage }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [startPage, setStartPage] = useState(1);
   const [endPage, setEndPage] = useState(10);
@@ -115,4 +115,4 @@ const SnrDataBoard: React.FC<Props> = ({ data, itemsPerPage }) => {
   );
 };
 
-export default SnrDataBoard;
+export default SatobsDataBoard;

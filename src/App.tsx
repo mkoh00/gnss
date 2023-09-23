@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import DataTable from "./component/SnrDataBoard";
+import SkyPlot from "./component/SkyPlot";
+import "./App.css";
 
 function App() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/getData")
+    fetch("http://localhost:5001/getSkyPlot")
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((error) => console.error("Error fetching data:", error));
@@ -13,7 +14,7 @@ function App() {
 
   return (
     <div>
-      <DataTable data={data} itemsPerPage={16} />
+      <SkyPlot data={data} mountPoint='PPGS' />
     </div>
   );
 }

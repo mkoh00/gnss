@@ -12,9 +12,29 @@ const pool = new Pool({
   port: Number(process.env.DB_PORT),
 });
 
-const getDataHandler = async (req, res) => {
+const getSnrDataHandler = async (req, res) => {
   try {
-    const { rows } = await pool.query(QUERIES.GET_ALL_DATA);
+    const { rows } = await pool.query(QUERIES.GET_SNR_DATA);
+    res.json(rows);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("서버 에러");
+  }
+};
+
+const getSatobsDataHandler = async (req, res) => {
+  try {
+    const { rows } = await pool.query(QUERIES.GET_SATOBS_DATA);
+    res.json(rows);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("서버 에러");
+  }
+};
+
+const getSkyPlotHandler = async (req, res) => {
+  try {
+    const { rows } = await pool.query(QUERIES.GET_SKY_PLOT_DATA);
     res.json(rows);
   } catch (err) {
     console.error(err.message);
@@ -23,5 +43,7 @@ const getDataHandler = async (req, res) => {
 };
 
 module.exports = {
-  getDataHandler,
+  getSnrDataHandler,
+  getSatobsDataHandler,
+  getSkyPlotHandler
 };

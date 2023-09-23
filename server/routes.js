@@ -1,3 +1,5 @@
 module.exports = {
-  GET_DATA: "/getData",
+  GET_SNR_DATA: "/getSnrData",
+  GET_SATOBS_DATA: "/getSatObsData",
+  GET_SKY_PLOT: "/getSkyPlot",
 };
