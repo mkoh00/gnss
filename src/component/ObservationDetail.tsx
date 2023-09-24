@@ -6,9 +6,9 @@ interface Props {
   mountPoint: string;
 }
 
-const DashBoard: React.FC<Props> = ({ mountPoint }) => {
+const ObservationDetail: React.FC<Props> = ({ mountPoint }) => {
 
-  const defaltUrl = "http://218.153.121.205:3000/public/dashboard/81f9cdc2-a89c-41f2-9a0d-f7d0a1e5976c?tab=65-tab-1&mount_point=";
+  const defaltUrl = "http://218.153.121.205:3000/public/dashboard/dbdfd6aa-7773-459f-8bed-60ed492aee35?tab=99-pseudo_range&mount_point=";
   const defaltMountPoint = "PPGS"
   const [dataUrl, setDataUrl] = useState<string>(defaltUrl+defaltMountPoint);
   // 
@@ -29,4 +29,4 @@ const DashBoard: React.FC<Props> = ({ mountPoint }) => {
   );
 };
 
-export default DashBoard;
+export default ObservationDetail;

@@ -34,7 +34,8 @@ const getSatobsDataHandler = async (req, res) => {
 
 const getSkyPlotDataHandler = async (req, res) => {
   try {
-    const { rows } = await pool.query(QUERIES.GET_SKY_PLOT_DATA);
+    //console.log("mount point는 " + req.query.mount_point + " 입니다")
+    const { rows } = await pool.query(QUERIES.GET_SKY_PLOT_DATA + "'" + req.query.mount_point + "'");
     res.json(rows);
   } catch (err) {
     console.error(err.message);

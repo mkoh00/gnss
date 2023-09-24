@@ -26,8 +26,8 @@ const FixedConatiner = ({ children }: FixedConatinerProps) => {
             setWidth(window.innerWidth);
             //setHeight(window.innerHeight);
             setHeight(documentHeight);
-            console.log("windowHeight = ", windowHeight);
-            console.log("documentHeight = ", documentHeight);
+            //console.log("windowHeight = ", windowHeight);
+            //console.log("documentHeight = ", documentHeight);
         };
 
         handleResize();
