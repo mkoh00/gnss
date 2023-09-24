@@ -11,7 +11,6 @@ interface DataType {
 }
 
 interface Props {
-  data: DataType[];
   mountPoint: string;
 }
 
@@ -26,9 +25,18 @@ interface SkyPlotData {
   tooltip: string;
 }
 
-const SkyPlot: React.FC<Props> = ({ data , mountPoint }) => {
+const SkyPlot: React.FC<Props> = ({ mountPoint }) => {
   
   const [skyPlotDataArray, setSkyPlotDataArray] = useState<SkyPlotData[]>(new Array<SkyPlotData>());
+
+  const [data, setData] = useState<DataType[]>([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5001/getSkyPlot")
+      .then((response) => response.json())
+      .then((data) => setData(data))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
 
   useEffect(()=>{
     if(data && data.length > 0){
@@ -36,10 +44,10 @@ const SkyPlot: React.FC<Props> = ({ data , mountPoint }) => {
     }
 
     // 5초마다 reload
-    setTimeout(() => {
-      window.location.reload();
-    }, 5000);
-    
+    //setTimeout(() => {
+    //  window.location.reload();
+    //}, 5000);
+
   },[data]);
 
   const xl: number[] = [0, 100];

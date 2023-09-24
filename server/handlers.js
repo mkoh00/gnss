@@ -32,9 +32,19 @@ const getSatobsDataHandler = async (req, res) => {
   }
 };
 
-const getSkyPlotHandler = async (req, res) => {
+const getSkyPlotDataHandler = async (req, res) => {
   try {
     const { rows } = await pool.query(QUERIES.GET_SKY_PLOT_DATA);
+    res.json(rows);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("서버 에러");
+  }
+};
+
+const getMounPointsHandler = async (req, res) => {
+  try {
+    const { rows } = await pool.query(QUERIES.GET_MOUNT_POINTS);
     res.json(rows);
   } catch (err) {
     console.error(err.message);
@@ -45,5 +55,6 @@ const getSkyPlotHandler = async (req, res) => {
 module.exports = {
   getSnrDataHandler,
   getSatobsDataHandler,
-  getSkyPlotHandler
+  getSkyPlotDataHandler,
+  getMounPointsHandler
 };

@@ -28,12 +28,69 @@
   color: #61dafb;
 }
 
+BODY  {
+  overflow: hidden;
+      } 
+
+.hbox {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+.left-menu-wrapper {
+  /* background: violet;  */
+  position: absolute;
+  width: 12%;
+  height: 100%;
+  top: 5%;
+  bottom: 0%;
+}
+.content-wrapper {
+  position: absolute;
+  left: 12%;
+  width: 88%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.menu-li {
+  width: 100%;
+  position: relative;
+  text-align: left;
+  color:#509ee3;
+}
+.menu-li a {
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  color:#509ee3;
+}
+.menu-li a:hover {
+  color: blue;
+}
+
+.sidebar-item {
+  width: 100%;
+  position: relative;
+  text-align: left;
+  color:#000000 !important;
+}
+
 .skyplot-text {
   position: absolute;
   width: 40px;
   height: 20px;
   text-align: center;
   transform: translate(-50%, -50%);
+  background: transparent;
+  font-size: 9pt;
+}
+
+.sidebar {
+  position: absolute;
+  width: 140px;
+  height: 100vh;
+  text-align: center;
   background: transparent;
   font-size: 9pt;
 }

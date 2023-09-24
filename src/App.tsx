@@ -1,21 +1,27 @@
 import React, { useState, useEffect } from "react";
+
+import { BrowserRouter, Route } from "react-router-dom";
+import { Routes } from "react-router";
+
+import DashBoard from "./component/DashBoard";
 import SkyPlot from "./component/SkyPlot";
 import "./App.css";
+import SnrDataBoard from "./component/SnrDataBoard";
 
 function App() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:5001/getSkyPlot")
-      .then((response) => response.json())
-      .then((data) => setData(data))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []);
-
   return (
-    <div>
-      <SkyPlot data={data} mountPoint='PPGS' />
-    </div>
+    <BrowserRouter>
+        <Routes>
+            <Route
+              path="/"
+              element={<DashBoard mountPoint='PPGS' />}
+            ></Route>
+            <Route
+              path="/skyplot"
+              element={<SkyPlot mountPoint='PPGS' />}
+            ></Route>
+        </Routes>
+    </BrowserRouter>
   );
 }
 
